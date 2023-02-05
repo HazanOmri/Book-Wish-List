@@ -18,6 +18,7 @@ window.cs = bookService
 
 
 async function query(filterBy = getEmptyFilter()) {
+    console.log(filterBy)
     if (filterBy.title) {
             books = books.sort((a, b) => a.title.localeCompare(b.title))
         }
