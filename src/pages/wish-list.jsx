@@ -11,17 +11,15 @@ export function WishList() {
 
     useEffect(() => {
         loadBooks(filter)
-    }, [])
+    }, [filter])
 
     function onSetFilter(val) {
-        setFilter(val)
+        setFilter({[val] : val})
     }
 
     return <div className="wish-list">
         <div>
             <button onClick={() => onSetFilter('title')}>Title</button>
-            <button onClick={() => onSetFilter('price')}>Price</button>
-            <button onClick={() => onSetFilter('rating')}>Rating</button>
         </div>
         {books?.map(book => <LikedBookPreview book={book} />)}
     </div>
