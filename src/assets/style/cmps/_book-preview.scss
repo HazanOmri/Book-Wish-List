@@ -1,0 +1,40 @@
+.book-preview {
+    background-color: #efeeee;
+    width: 80%;
+    height: 280px;
+    position: relative;
+    
+    >*{
+        margin-left: 10px;
+    }
+
+    .title {
+        font-size: 1em;
+    }
+
+    .author {
+        font-size: .8em;
+        color: rgb(150, 190, 190);
+    }
+
+    p {
+        font-size: .6em;
+    }
+
+    hr{
+        width: 90%;
+        margin: auto;
+    }
+
+    input{
+        position: absolute;
+        right: 0px;
+        accent-color: rgb(150, 190, 190);
+    }
+
+    .book-description {
+        height: 80px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+}

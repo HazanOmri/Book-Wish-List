@@ -1,6 +1,9 @@
 import { useSelector } from "react-redux";
 import { addBook, removeBook } from "../store/book.actions";
 
+import { Box, Rating } from '@mui/material';
+
+
 export function BookPreview({ book }) {
     const wishList = useSelector((storeState => storeState.bookModule.wishList))
 
@@ -23,10 +26,18 @@ export function BookPreview({ book }) {
             />
             <h1>{book.title}</h1>
             <hr></hr>
-            <h2>{book.author}</h2>
-            <p>{book.description}</p>
-            <p>{book.rating}</p>
+            <p className="author">{book.author}</p>
+            <div className="book-description">
+                <p >{book.description}</p>
+            </div>
+            <Box
+                sx={{
+                    '& > legend': { mt: 2 },
+                }}
+            >
+                <Rating name="read-only" value={book.rating} readOnly />
+            </Box>
             <p>{book.price}$</p>
-        </main>
+        </div>
     )
 }
