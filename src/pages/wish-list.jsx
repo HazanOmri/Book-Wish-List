@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { LikedBookPreview } from '../cmps/liked-book-preview'
 import { bookService } from '../services/book.service'
-import { utilService } from '../services/util.service'
 import { loadBooks } from '../store/book.actions'
 
 export function WishList() {
