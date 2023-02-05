@@ -6,7 +6,7 @@ export const REMOVE_BOOK = 'REMOVE_BOOK'
 
 const initialState = {
     books: null,
-    wishList: null
+    wishList: []
 }
 
 export function bookReducer(state = initialState, action) {
@@ -15,14 +15,10 @@ export function bookReducer(state = initialState, action) {
         case SET_BOOKS:
             return { ...state, books: action.books }
         case ADD_BOOK:
-            console.log('action.bookId', action.bookId)
-            const book = state.books.find(book => book._id === action.bookId)
-            console.log('ADDDDDD')
-            return { ...state, wishList: [...state.wishList, book] }
+            console.log(state.wishList);
+            return { ...state, wishList: [...state.wishList, action.book] }
         case REMOVE_BOOK:
-            const idx = state.wishList.findIndex(book => book._id === action.bookId)
-            const wishList = state.wishList
-            wishList.slice(idx)
+            const wishList = state.wishList.filter(book => book._id !== action.bookId)
             return { ...state, wishList }
         default:
             return state

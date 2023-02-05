@@ -13,9 +13,9 @@ export async function loadBooks() {
 }
 
 export async function addBook(bookId) {
-    console.log(bookId)
     try {
-        store.dispatch({ type: ADD_BOOK, bookId })
+        const book = await bookService.getById(bookId)
+        store.dispatch({ type: ADD_BOOK, book })
     } catch (err) {
         console.error('cannot add book', err)
     }
