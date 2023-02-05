@@ -1,17 +1,28 @@
+import { Box, Rating } from '@mui/material';
+
+
 export function BookPreview({ book }) {
 
     function setWishList(bookId) {
         console.log('bookId ', bookId)
     }
     return (
-        <main className="book-preview">
+        <div className="book-preview">
             <input type='checkbox' onChange={() => setWishList(book._id)} />
-            <h1>{book.title}</h1>
+            <p className="title">{book.title}</p>
             <hr></hr>
-            <h2>{book.author}</h2>
-            <p>{book.description}</p>
-            <p>{book.rating}</p>
+            <p className="author">{book.author}</p>
+            <div className="book-description">
+                <p >{book.description}</p>
+            </div>
+            <Box
+                sx={{
+                    '& > legend': { mt: 2 },
+                }}
+            >
+                <Rating name="read-only" value={book.rating} readOnly />
+            </Box>
             <p>{book.price}$</p>
-        </main>
+        </div>
     )
 }

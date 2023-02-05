@@ -11,12 +11,16 @@ export const bookService = {
     query,
     getById,
     save,
-    remove
+    remove,
+    getEmptyFilter
 }
 window.cs = bookService
 
 
-async function query(filterBy) {
+async function query(filterBy = getEmptyFilter()) {
+    if (filterBy.title) {
+            books = books.sort((a, b) => a.title.localeCompare(b.title))
+        }
     return books
 }
 
@@ -36,6 +40,10 @@ async function save(book) {
         savedBook = await storageService.post(STORAGE_KEY, book)
     }
     return savedBook
+}
+
+function getEmptyFilter() {
+    return { title: null, price: null, rating: 0 }
 }
 
 async function _createBooks() {
@@ -67,7 +75,7 @@ async function _createBooks() {
                 "price": "7.99"
             },
             {
-                "_id" : utilService.makeId(6),
+                "_id": utilService.makeId(6),
                 "title": "The Hobbit",
                 "description": "Bilbo Baggins is a hobbit who enjoys a comfortable, unambitious life, rarely traveling any farther than his pantry or cellar. But his contentment is disturbed when the wizard Gandalf and a company of dwarves arrive on his doorstep one day to whisk him away on an adventure. They have launched a plot to raid the treasure hoard guarded by Smaug the Magnificent, a large and very dangerous dragon. Bilbo reluctantly joins their quest, unaware that on his journey to the Lonely Mountain he will encounter both a magic ring and a frightening creature known as Gollum.",
                 "rating": "4.7",
@@ -75,7 +83,7 @@ async function _createBooks() {
                 "price": "10.63"
             },
             {
-                "_id" : utilService.makeId(6),
+                "_id": utilService.makeId(6),
                 "title": "Only a Whisper",
                 "description": "Called in the night to transcribe the bedridden confession of a dying man, federal agent Rae Phillips lost her heart to a voice in the darkness, a hero whose face she never saw�",
                 "rating": "2.1",
@@ -83,7 +91,7 @@ async function _createBooks() {
                 "price": "2.78"
             },
             {
-                "_id" : utilService.makeId(6),
+                "_id": utilService.makeId(6),
                 "title": "Autobiography of a Yogi",
                 "description": "Autobiography of a Yogi is at once a beautifully written account of an exceptional life and a profound introduction to the ancient science of Yoga and its time-honored tradition of meditation",
                 "rating": "4.6",
@@ -91,7 +99,7 @@ async function _createBooks() {
                 "price": "18"
             },
             {
-                "_id" : utilService.makeId(6),
+                "_id": utilService.makeId(6),
                 "title": "Out There",
                 "description": "Out There is a celebration of books that have a made a difference in our lives.",
                 "rating": "3.2",
@@ -99,7 +107,7 @@ async function _createBooks() {
                 "price": "10.14"
             },
             {
-                "_id" : utilService.makeId(6),
+                "_id": utilService.makeId(6),
                 "title": "Crafting with Cat Hair: Cute Handicrafts to Make with Your Cat",
                 "description": "Got fur balls?",
                 "rating": "3.6",
@@ -107,7 +115,7 @@ async function _createBooks() {
                 "price": "9.97"
             },
             {
-                "_id" : utilService.makeId(6),
+                "_id": utilService.makeId(6),
                 "title": "The Yiddish Policemen's Union Kindle Edition",
                 "description": "Set in the Jewish homeland of � Alaska, this is a brilliantly original novel from Michael Chabon, author of THE ADVENTURES OF KAVALIER & CLAY and WONDER BOYS.",
                 "rating": "3.7",
@@ -115,7 +123,7 @@ async function _createBooks() {
                 "price": "21.33"
             },
             {
-                "_id" : utilService.makeId(6),
+                "_id": utilService.makeId(6),
                 "title": "One More Day",
                 "description": "Carrie Morgan's son disappears. Rumors start to circulate through Carrie's small town. Her husband and friends start to think she's crazy. As the investigation heats up, Carrie must decide what to share, and why.",
                 "rating": "3.1",
@@ -123,7 +131,7 @@ async function _createBooks() {
                 "price": "25.82"
             },
             {
-                "_id" : utilService.makeId(6),
+                "_id": utilService.makeId(6),
                 "title": "The Laundry Room",
                 "description": "The Laundry Room dramatizes a fascinating moment in the history of the founding of Israel as a self-ruling nation.",
                 "rating": "4",
