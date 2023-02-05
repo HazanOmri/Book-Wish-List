@@ -23,6 +23,6 @@ export function WishList() {
             <button onClick={() => onSetFilter('price')}>Price</button>
             <button onClick={() => onSetFilter('rating')}>Rating</button>
         </div>
-        {books?.map(book => <LikedBookPreview book={book} />)}
+        {wishList?.map(book => <LikedBookPreview book={book} />)}
     </div>
 }
