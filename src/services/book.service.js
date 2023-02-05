@@ -1,5 +1,5 @@
 
-import axios from 'axios'
+// import s from 'axios'
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 
@@ -131,7 +131,6 @@ async function _createBooks() {
                 "price": "17.5"
             }
         ]
-        // books = await axios.get('http://s3.amazonaws.com/sundaysky-mock/books/listOfBooks.json')
         utilService.saveToStorage(STORAGE_KEY, books)
     }
 }

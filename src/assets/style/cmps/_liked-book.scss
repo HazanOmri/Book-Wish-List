@@ -1,0 +1,22 @@
+.liked-book{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    max-height: 50px;
+
+    .label-color{
+        position: absolute;
+        width: 5px;
+        height: 50px;
+        background-color: orange;
+    }
+
+    p{
+        padding-inline-start: 10px;
+    }
+
+    button{
+        margin: 10px;
+    }
+}
