@@ -1,7 +1,13 @@
+import { Route, Router, Routes } from "react-router-dom";
+
 export function App() {
   return (
-    <div className="App">
-      <h1>hello</h1>
-    </div>
+    <Router>
+      <main className="main-app">
+        <Routes>
+          <Route />
+        </Routes>
+      </main>
+    </Router>
   )
 }
