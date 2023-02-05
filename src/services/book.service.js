@@ -1,4 +1,5 @@
 
+import axios from 'axios'
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 
@@ -37,7 +38,7 @@ async function save(book) {
     return savedBook
 }
 
-function _createBooks() {
+async function _createBooks() {
     books = utilService.loadFromStorage(STORAGE_KEY)
     if (!books) {
         books = [

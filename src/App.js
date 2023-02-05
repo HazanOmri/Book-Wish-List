@@ -1,4 +1,6 @@
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, Router, Routes } from "react-router-dom"
+import { bookService } from "./services/book.service"
+
 
 // import {LikedBookPreview} from 
 
@@ -7,8 +9,9 @@ export function App() {
       <main className="main-app">
         {/* <LikedBookPreview/> */}
         {/* <Routes>
-          <Route />
+          <Route element={BookIndex} path={'/'} />
         </Routes> */}
       </main>
+    // </Router>
   )
 }
