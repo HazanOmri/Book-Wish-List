@@ -1,12 +1,14 @@
-import { Route, HashRouter as Router, Routes } from "react-router-dom"
-import { BookIndex } from "./pages/book-index"
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+
+import { LikedBookPreview } from './cmps/liked-book-preview.jsx'
+import { WishList } from './pages/wish-list.jsx'
 
 export function App() {
   return (
     <Router>
       <main className="main-app">
         <Routes>
-          <Route element={<BookIndex/>} path="/" />
+          <Route element={<WishList />} path='/' />
         </Routes>
       </main>
     </Router>
