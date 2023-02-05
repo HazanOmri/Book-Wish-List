@@ -6,6 +6,7 @@ export async function loadBooks(){
     try{
         const books = await bookService.query()
         store.dispatch({ type: SET_BOOKS, books })
+        return books
     }catch(err){
         throw err
     }
