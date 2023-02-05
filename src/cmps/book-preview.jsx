@@ -38,6 +38,6 @@ export function BookPreview({ book }) {
                 <Rating name="read-only" value={book.rating} readOnly />
             </Box>
             <p>{book.price}$</p>
-        </div>
+        </main>
     )
 }
