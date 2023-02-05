@@ -1,13 +1,13 @@
-export const SET_BOOK = 'SET_BOOK'
+export const SET_BOOKS = 'SET_BOOKS'
 
 const initialState = {
-    book: null
+    books: null
 }
 
 export function bookReducer(state = initialState, action) {
     switch (action.type) {
-        case SET_BOOK:
-            return { ...state, book: action.book }
+        case SET_BOOKS:
+            return { ...state, books: action.books }
         default:
             return state
     }
